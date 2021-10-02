@@ -1,0 +1,96 @@
+// index.php  POST CARD
+
+.post {
+    .post_title {
+        padding-top: 1rem;
+        display: flex;
+        color: #3c4043;
+        margin: .25rem 0;
+        font-size: 1.15rem;
+        font-weight: 500;
+        line-height: normal;
+
+        .post_title_bullet {
+            border-left: .125rem solid #1a73e8;
+            margin: 1.25rem -2rem .25rem -1.1875rem;
+            min-width: 2.1875rem;
+            padding-left: .875rem;
+            max-height: 2rem;
+        }
+    }
+
+    .post_body {
+        font-size: .875rem;
+        color: #3c4043;
+        line-height: 1.5rem;
+        max-height: 70px;
+        overflow: hidden;
+        word-wrap: break-word;
+    }
+
+    a {
+        @extend .post_body;
+        color: #1a73e8;
+    }
+
+    padding-bottom: 1.5rem;
+    border-bottom: .0625rem solid #dadce0;
+    list-style: none;
+    margin: 0;
+    margin-bottom: 0px;
+    margin-bottom: 1.5rem;
+}
+
+// post.php Individual Post
+
+.article-content-container {
+    padding-bottom: 2rem;
+
+    .article-heading {
+
+
+        line-height: normal;
+        margin: 0 0 .5rem;
+        color: #202124;
+
+        @media screen and (min-width: 450px) {
+            padding-top: 3rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+
+        }
+
+        @media screen and (max-width: 450px) {
+            h1 {
+
+                font-size: 1.5rem;
+                padding-top: 2rem;
+            }
+        }
+    }
+
+    .article-content {
+        overflow: hidden;
+        font-size: .875rem;
+        color: #3c4043;
+        line-height: 1.25rem;
+        margin: .25rem 0 .75rem;
+
+        p {
+            padding: .35rem 0;
+        }
+
+        a {
+            color: #1a73e8;
+        }
+
+        // padding-top: 1rem;
+    }
+
+}
+
+
+
+// edit.php     post editor

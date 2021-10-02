@@ -1,0 +1,37 @@
+@import "./reset";
+@import "./header";
+@import "./post";
+@import "./sign";
+@import "./profile";
+@import "./postEditor";
+
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.postContainer {
+    width: 70%;
+    margin: auto;
+}
+
+main {
+    min-height: 83vh;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 85%;
+        margin: auto;
+    }
+
+    .postContainer {
+        width: 90%;
+        margin: auto;
+    }
+
+    main {
+        min-height: 83vh;
+    }
+}
