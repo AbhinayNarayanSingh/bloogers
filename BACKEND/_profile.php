@@ -6,6 +6,7 @@
 function composeList(){
 
     $userId = user("id");
+    // echo $userId;   //working here
 
     $query = "SELECT * FROM composes WHERE `userId` = '$userId'";
     $query = mysqli_query($GLOBALS['conn'], $query);
@@ -37,7 +38,7 @@ function composeList(){
     }
 }
 
-// composeDelete
+// composeDelete    working
 
 function composeDelete(){
     if (isset($_GET['composeDelete'])) {
@@ -90,6 +91,32 @@ function statusUpdate(){
                 status('publish','Compose published');
             } else {
                 status('draft','Compose drafted');
+        }
+    }
+}
+
+
+function profilePictureUpdate(){
+    if (isset($_GET['profilePictureUpdate'])) {
+        if (isset($_FILES['userProfile'])) {
+
+            // Array ( [userProfile] => Array ( [name] => WhatsApp Image 2021-10-05 at 10.24.19.jpeg [type] => image/jpeg [tmp_name] => C:\xampp\tmp\phpEAB2.tmp [error] => 0 [size] => 64786 ) ) 
+            
+            $fileName = $_FILES['userProfile']['name'];
+            $fileTmpName = $_FILES['userProfile']['tmp_name'];
+            $fileLocation= './img/users_profile_img/';
+
+            move_uploaded_file($fileTmpName, $fileLocation.$fileName);
+
+            $userId = user('id');
+            $userEmail = user('email');
+
+            $query= "UPDATE `users` SET `userProfileImage`='$fileName' WHERE `userId`= '$userId' and `userEmail` = '$userEmail'";
+            $query = mysqli_query($GLOBALS['conn'],$query);
+
+            queryErrorCheck($query, "jjj");
+
+            header("location: ./profile.php?msg=Profile Picture Updated");
         }
     }
 }

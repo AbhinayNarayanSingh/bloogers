@@ -1,5 +1,5 @@
 <?php include "./backend.map.php"; 
-session_start();
+// session_start();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,9 @@ session_start();
             ?>
                 <div style="display: flex; align-items: center;">
                 <div   onclick="toggle('.editorContainer')" class="addNewPost"><p>New Compose</p></div>
-                <div class="profile " onclick="toggle('.popup-container')"></div>
+                <div class="profile " onclick="toggle('.popup-container')">
+                     <img src="./img/users_profile_img/<?php echo user('profile') ?>">
+                </div>
                 </div>
             <?php  
         } else {
@@ -64,7 +66,10 @@ session_start();
 <div class="popup-container hide" onclick="toggle('.popup-container')">
 
     <div class="popup">
-        <div class="userProfile"></div>
+        <div class="userProfile">
+        <img src="./img/users_profile_img/<?php echo user('profile') ?>">
+
+        </div>
         <div class="userDetails">
         <p class="userName"><?php echo user('name') ?></p>
         <p class="userEmail"  style="margin-bottom: 1rem;"><?php echo user('email') ?></p>

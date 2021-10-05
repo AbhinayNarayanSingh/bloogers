@@ -196,3 +196,21 @@ input[type=reset] {
 button {
 	cursor: pointer;
 }
+
+
+@mixin position($key) {
+	@if $key=='father' {
+		position: relative;
+	}
+
+	@if $key=='child' {
+		position: absolute;
+	}
+
+	@if $key=='center' {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

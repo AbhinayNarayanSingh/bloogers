@@ -60,7 +60,9 @@ function signin(){
             $_SESSION['userName'] = $row['userName'];
             $_SESSION['userEmail'] = $row['userEmail'];
             $_SESSION['userMob'] = $row['userMob'];
+            $_SESSION['userProfileImage'] = $row['userProfileImage'];
 
+            echo $_SESSION['userProfileImage'];
             header("location: ./profile.php?msg=User Signed In");
         } else {
             header("location: ./sign.php?signin&error=Invalid Credentials");

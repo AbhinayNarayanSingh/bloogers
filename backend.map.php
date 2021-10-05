@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 
 
 $hostname = "localhost";
@@ -23,6 +24,7 @@ function user($variable){
         switch ($variable) {
         case 'id':
         return $_SESSION['userId'];
+        echo $_SESSION['userId'];
         break;
         case 'name':
         return $_SESSION['userName'];
@@ -33,9 +35,9 @@ function user($variable){
         case 'mob':
         return $_SESSION['userMob'];
         break;  
-        //  case 'profile':
-        //     return "8795675599";
-        //     break;  
+        case 'profile':
+        return $_SESSION['userProfileImage'];
+        break;  
         }
     }
 }
@@ -66,3 +68,4 @@ statusUpdate();
 signUp();
 signin();
 logout();
+profilePictureUpdate();
