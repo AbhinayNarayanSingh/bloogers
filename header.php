@@ -1,3 +1,7 @@
+<?php include "./backend.map.php"; 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,14 +33,27 @@
             <a href="./ ">Bloogers</a>
         </div>
 
-<div style="display: flex; align-items: center;">
-    <div   onclick="toggle('.editorContainer')" class="addNewPost"><p>New Compose</p></div>
-    <div class="profile " onclick="toggle('.popup-container')"></div>
-</div>
 
-        <a href="./sign.php" class="hide">
-            <p class="signIn">Sign In</p>
-        </a>
+        <?php  
+        
+        if ($_SESSION) {
+            ?>
+                <div style="display: flex; align-items: center;">
+                <div   onclick="toggle('.editorContainer')" class="addNewPost"><p>New Compose</p></div>
+                <div class="profile " onclick="toggle('.popup-container')"></div>
+                </div>
+            <?php  
+        } else {
+            ?>
+                <a href="./sign.php?signin">
+                    <p class="signIn">Sign In</p>
+                </a>
+            <?php
+        }
+        
+        ?>
+
+
 
 
     </header>
@@ -49,13 +66,13 @@
     <div class="popup">
         <div class="userProfile"></div>
         <div class="userDetails">
-        <p class="userName">Abhinay Singh</p>
-        <p class="userEmail"  style="margin-bottom: 1rem;">abhi8795675599@gmail.com</p>
+        <p class="userName"><?php echo user('name') ?></p>
+        <p class="userEmail"  style="margin-bottom: 1rem;"><?php echo user('email') ?></p>
     </div>
 
 
     <a href="./profile.php" class="popup-section"><p>Dashboard</p></a>
-    <a href="./sign.php" class="popup-section">
+    <a href="./backend.map.php?logout" class="popup-section">
         <p>Sign Out</p>
     </a>
 

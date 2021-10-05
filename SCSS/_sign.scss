@@ -107,11 +107,17 @@
         .signUpBtn {
             &:hover {
                 color: #1a73e8;
+                cursor: pointer;
             }
         }
     }
 }
 
 #signUp {
-    margin-top: 3rem;
+    margin: 3rem 0;
+}
+
+#error {
+    color: #d93025;
+    font-size: .9rem;
 }
